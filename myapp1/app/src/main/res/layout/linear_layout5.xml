@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="start"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:background="#2B49B1"
+            android:text="←"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_width="60dp"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_weight="2"
+            android:background="#2B49B1"
+            android:text="Simple Tabs"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:gravity="fill_vertical"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:weightSum="4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="ONE"
+            android:textColor="@color/white"
+            android:background="#2B49B1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="TWO"
+            android:textColor="@color/white"
+            android:background="#2B49B1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:text="THREE"
+            android:gravity="center"
+            android:background="#2B49B1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

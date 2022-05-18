@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--
+        특정 뷰 기준으로 배치하는 방법
+        to_ , of 가 들어가는 속성을 사용하면 된다.
+        id에 대한 개념도 알아보자
+    -->
+    <TextView
+        android:id="@+id/view1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:background="@color/mycolor"
+        android:gravity="center"
+        android:text="@string/my_app_title"
+        android:textColor="@color/white" />
+    <TextView
+        android:layout_toRightOf="@id/view1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/purple_700"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="text"
+        android:textColor="@color/white" />
+    <TextView
+        android:layout_toLeftOf= "@id/view1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/teal_200"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="text"
+        android:textColor="@color/white" />
+    <TextView
+        android:layout_above="@id/view1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/teal_700"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="text"
+        android:textColor="@color/white" />
+    <TextView
+        android:layout_below="@id/view1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#101CC4"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="text"
+        android:textColor="@color/white" />
+    <TextView
+        android:layout_below="@id/view1"
+        android:layout_toRightOf="@id/view1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#03A9F4"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="text"
+        android:textColor="@color/white" />
+    <TextView
+        android:layout_above="@id/view1"
+        android:layout_toRightOf="@id/view1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#E91E63"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="text"
+        android:textColor="@color/white" />
+    <TextView
+        android:layout_above="@id/view1"
+        android:layout_toLeftOf="@id/view1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#4CAF50"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="text"
+        android:textColor="@color/white" />
+    <TextView
+        android:layout_below="@id/view1"
+        android:layout_toLeftOf="@id/view1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#FFC107"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="text"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

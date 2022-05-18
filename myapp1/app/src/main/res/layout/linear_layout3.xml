@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+    <!--
+        gravity 는 자식 뷰들을 정렬할 수 있다.
+        합 연산자 (|) 로 위치를 지정할 수 있다.
+        ctrl alt L 코드 정렬
+    -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="텍스트 뷰"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@color/teal_200"
+        android:gravity="bottom|start"
+        android:text="content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#B2ADBA"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@color/purple_200"
+            android:text="text1" />
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#6B9BA2"
+            android:text="text2" />
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#6AB74C"
+            android:text="text3" />
+
+    </LinearLayout>
+    <!--
+        균등하게 영역을 배분하고 싶을 때
+       -->
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:background="@color/teal_200"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="ONE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:background="@color/purple_200"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="TWO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="THREE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>
