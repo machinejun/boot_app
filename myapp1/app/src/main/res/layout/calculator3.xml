@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#8B8F8F"
+        android:gravity="right|center"
+        android:paddingRight="15dp"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textSize="50dp" />
+
+    <LinearLayout
+        android:background="#8B8F8F"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="6">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+
+                android:background="@drawable/edge"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="1"
+                android:textSize="50dp" />
+
+            <TextView
+                android:background="@drawable/edge"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="1"
+                android:textSize="50dp" />
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="1"
+                android:textSize="50dp" />
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="1"
+                android:textSize="50dp" />
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+</LinearLayout>
