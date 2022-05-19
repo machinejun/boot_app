@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="mycolor">#F50404</color>
+    <color name="operator">#B6B5B5</color>
+    <color name="backgroudColor">#8B8F8F</color>
+    <color name="number">#EFEBEB</color>
 </resources>
