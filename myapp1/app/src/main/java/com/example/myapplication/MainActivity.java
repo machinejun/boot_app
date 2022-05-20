@@ -44,9 +44,17 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView result;
 
-    private StringBuffer newNum = new StringBuffer();
-    private StringBuffer oldNum = new StringBuffer();
-    private StringBuffer operator = new StringBuffer();
+    private StringBuilder newNum = new StringBuilder();
+    private StringBuilder oldNum = new StringBuilder();
+    private StringBuilder operator = new StringBuilder();
+    /*
+       데이터의 값이 변동이 많은 경우는 String < StringBuffer, StringBuilder
+       why ? : String이 변동될 때 기존의 데이터의 주소값은 가비지 컬렉터에 들어간다.
+               그래서 연산이 많아지면 성능저하가 나타난다.
+       단일 쓰레드일 경우는 StringBuilder > StringBuffer
+       멀티 쓰레드일 경우는 StringBuffer > StringBuilder 보다 좋다
+       why? : StringBuffer 는 동기화를 지원한다.
+     */
 
     String newValue = "0";
     String oldValue = "0";
@@ -94,66 +102,57 @@ public class MainActivity extends AppCompatActivity {
 
     private void addEventListener() {
         one.setOnClickListener(view -> {
-            Log.d(TAG, "three가 눌러졌어요");
             newNum.append("1");
             printResult(oldNum, operator, newNum);
 
         });
         two.setOnClickListener(view -> {
-            Log.d(TAG, "three가 눌러졌어요");
             newNum.append("2");
             printResult(oldNum, operator, newNum);
 
         });
         three.setOnClickListener(view -> {
-            Log.d(TAG, "three가 눌러졌어요");
             newNum.append("3");
             printResult(oldNum, operator, newNum);
 
         });
         four.setOnClickListener(view -> {
-            Log.d(TAG, "four가 눌러졌어요");
             newNum.append("4");
             printResult(oldNum, operator, newNum);
 
         });
         five.setOnClickListener(view -> {
-            Log.d(TAG, "five가 눌러졌어요");
             newNum.append("5");
             printResult(oldNum, operator, newNum);
 
         });
         six.setOnClickListener(view -> {
-            Log.d(TAG, "siz가 눌러졌어요");
             newNum.append("6");
             printResult(oldNum, operator, newNum);
 
         });
         seven.setOnClickListener(view -> {
-            Log.d(TAG, "seven가 눌러졌어요");
             newNum.append("7");
             printResult(oldNum, operator, newNum);
 
         });
         eight.setOnClickListener(view -> {
-            Log.d(TAG, "eight가 눌러졌어요");
             newNum.append("8");
             printResult(oldNum, operator, newNum);
 
         });
         nine.setOnClickListener(view -> {
-            Log.d(TAG, "nine가 눌러졌어요");
             newNum.append("9");
             printResult(oldNum, operator, newNum);
 
         });
 
         zero.setOnClickListener(view -> {
-            Log.d(TAG, "Zero가 눌러졌어요");
             newNum.append("0");
             printResult(oldNum, operator, newNum);
 
         });
+
 
         dot.setOnClickListener(view -> {
             if (newNum.indexOf(".") == -1) {
@@ -161,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
                 printResult(oldNum, operator, newNum);
             }
         });
+
 
         square.setOnClickListener(view -> {
             if (newNum.indexOf("^") == -1) {
@@ -201,7 +201,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         cancel.setOnClickListener(view -> {
-            Log.d(TAG, "CA가 눌러졌어요");
             oldNum.delete(0, oldNum.length());
             operator.delete(0, operator.length());
             newNum.delete(0, newNum.length());
@@ -234,7 +233,6 @@ public class MainActivity extends AppCompatActivity {
                 newNum.delete(0, newNum.length());
             }
             printResult(oldNum, operator, newNum);
-            Log.d(TAG, "+가 눌러졌어요");
         });
 
         minus.setOnClickListener(view -> {
@@ -263,7 +261,6 @@ public class MainActivity extends AppCompatActivity {
                 newNum.delete(0, newNum.length());
             }
             printResult(oldNum, operator, newNum);
-            Log.d(TAG, "-가 눌러졌어요");
         });
 
         multiply.setOnClickListener(view -> {
@@ -291,7 +288,6 @@ public class MainActivity extends AppCompatActivity {
                 newNum.delete(0, newNum.length());
             }
             printResult(oldNum, operator, newNum);
-            Log.d(TAG, "-가 눌러졌어요");
         });
 
         c.setOnClickListener(view -> {
@@ -332,7 +328,6 @@ public class MainActivity extends AppCompatActivity {
                 newNum.delete(0, newNum.length());
             }
             printResult(oldNum, operator, newNum);
-            Log.d(TAG, "-가 눌러졌어요");
         });
 
         equal.setOnClickListener(view -> {
@@ -368,7 +363,6 @@ public class MainActivity extends AppCompatActivity {
                     oldNum.delete(0, oldNum.length());
                     oldNum.append(String.format("%.2f", d));
                 } catch (NoSuchElementException e) {
-                    Log.d("dd","나옴");
                     errorprint();
                 }
 
@@ -442,7 +436,7 @@ public class MainActivity extends AppCompatActivity {
                 newNum.setLength(newNum.length() - 1);
                 printResult(oldNum, operator, newNum);
             } catch (StringIndexOutOfBoundsException e) {
-
+                result.setText("0");
             }
 
         });
@@ -457,7 +451,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void printResult(StringBuffer oN, StringBuffer op, StringBuffer nN) {
+    private void printResult(StringBuilder oN, StringBuilder op, StringBuilder nN) {
         result.setText(oN.toString() + op.toString() + nN.toString());
     }
 
