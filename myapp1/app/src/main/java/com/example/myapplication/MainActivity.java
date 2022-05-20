@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         zero = findViewById(R.id.zero);
         dot = findViewById(R.id.dot);
         //
+        c = findViewById(R.id.c);
         percent = findViewById(R.id.percent);
         erase = findViewById(R.id.erase);
         fountain = findViewById(R.id.fountain);
@@ -161,6 +162,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        square.setOnClickListener(view -> {
+            if (newNum.indexOf("^") == -1) {
+                newNum.append("^");
+                printResult(oldNum, operator, newNum);
+            }
+        });
+
+        root.setOnClickListener(view -> {
+            if (newNum.indexOf("√") == -1) {
+                newNum.insert(0, "√");
+                printResult(oldNum, operator, newNum);
+            }
+        });
+
+        percent.setOnClickListener(view -> {
+            if (newNum.indexOf(".") != -1) {
+                int d = (int) (Double.parseDouble(newNum.toString()) * 100);
+                newNum.delete(0, newNum.length());
+                newNum.append(d);
+                newNum.append("%");
+                printResult(oldNum, operator, newNum);
+            }
+        });
+
         convert.setOnClickListener(view -> {
             if (newNum.indexOf(".") == -1) {
                 int i = Integer.parseInt(newNum.toString()) * -1;
@@ -169,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 double d = Double.parseDouble(newNum.toString()) * -1;
                 newNum.delete(0, newNum.length());
-                newNum.append(String.format("%.1f", d));
+                newNum.append(d);
             }
             printResult(oldNum, operator, newNum);
         });
@@ -187,16 +212,21 @@ public class MainActivity extends AppCompatActivity {
             operator.delete(0, operator.length());
             operator.append("+");
 
+
             if (oldNum.length() != 0) {
-                if (oldNum.indexOf(".") != -1 || newNum.indexOf(".") != -1) {
-                    double d = Double.parseDouble(oldNum.toString()) + Double.parseDouble(newNum.toString());
-                    oldNum.delete(0, oldNum.length());
-                    oldNum.append(String.format("%.1f", d));
-                    newNum.delete(0, newNum.length());
+                if (newNum.length() != 0) {
+                    if (oldNum.indexOf(".") != -1 || newNum.indexOf(".") != -1) {
+                        double d = Double.parseDouble(oldNum.toString()) + Double.parseDouble(newNum.toString());
+                        oldNum.delete(0, oldNum.length());
+                        oldNum.append(String.format("%.2f", d));
+                        newNum.delete(0, newNum.length());
+                    } else {
+                        int i = Integer.parseInt(oldNum.toString()) + Integer.parseInt(newNum.toString());
+                        oldNum.delete(0, oldNum.length());
+                        oldNum.append(i);
+                        newNum.delete(0, newNum.length());
+                    }
                 } else {
-                    int i = Integer.parseInt(oldNum.toString()) + Integer.parseInt(newNum.toString());
-                    oldNum.delete(0, oldNum.length());
-                    oldNum.append(i);
                     newNum.delete(0, newNum.length());
                 }
             } else {
@@ -212,17 +242,22 @@ public class MainActivity extends AppCompatActivity {
             operator.append("-");
 
             if (oldNum.length() != 0) {
-                if (oldNum.indexOf(".") != -1 || newNum.indexOf(".") != -1) {
-                    double d = Double.parseDouble(oldNum.toString()) - Double.parseDouble(newNum.toString());
-                    oldNum.delete(0, oldNum.length());
-                    oldNum.append(String.format("%.1f", d));
-                    newNum.delete(0, newNum.length());
+                if (newNum.length() != 0) {
+                    if (oldNum.indexOf(".") != -1 || newNum.indexOf(".") != -1) {
+                        double d = Double.parseDouble(oldNum.toString()) - Double.parseDouble(newNum.toString());
+                        oldNum.delete(0, oldNum.length());
+                        oldNum.append(String.format("%.1f", d));
+                        newNum.delete(0, newNum.length());
+                    } else {
+                        int i = Integer.parseInt(oldNum.toString()) - Integer.parseInt(newNum.toString());
+                        oldNum.delete(0, oldNum.length());
+                        oldNum.append(i);
+                        newNum.delete(0, newNum.length());
+                    }
                 } else {
-                    int i = Integer.parseInt(oldNum.toString()) - Integer.parseInt(newNum.toString());
-                    oldNum.delete(0, oldNum.length());
-                    oldNum.append(i);
                     newNum.delete(0, newNum.length());
                 }
+
             } else {
                 oldNum.append(newNum);
                 newNum.delete(0, newNum.length());
@@ -236,15 +271,19 @@ public class MainActivity extends AppCompatActivity {
             operator.append("X");
 
             if (oldNum.length() != 0) {
-                if (oldNum.indexOf(".") != -1 || newNum.indexOf(".") != -1) {
-                    double d = Double.parseDouble(oldNum.toString()) * Double.parseDouble(newNum.toString());
-                    oldNum.delete(0, oldNum.length());
-                    oldNum.append(String.format("%.1f", d));
-                    newNum.delete(0, newNum.length());
+                if (newNum.length() != 0) {
+                    if (oldNum.indexOf(".") != -1 || newNum.indexOf(".") != -1) {
+                        double d = Double.parseDouble(oldNum.toString()) * Double.parseDouble(newNum.toString());
+                        oldNum.delete(0, oldNum.length());
+                        oldNum.append(String.format("%.2f", d));
+                        newNum.delete(0, newNum.length());
+                    } else {
+                        int i = Integer.parseInt(oldNum.toString()) * Integer.parseInt(newNum.toString());
+                        oldNum.delete(0, oldNum.length());
+                        oldNum.append(i);
+                        newNum.delete(0, newNum.length());
+                    }
                 } else {
-                    int i = Integer.parseInt(oldNum.toString()) * Integer.parseInt(newNum.toString());
-                    oldNum.delete(0, oldNum.length());
-                    oldNum.append(i);
                     newNum.delete(0, newNum.length());
                 }
             } else {
@@ -255,20 +294,37 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "-가 눌러졌어요");
         });
 
+        c.setOnClickListener(view -> {
+            newNum.delete(0, newNum.length());
+            printResult(oldNum, operator, newNum);
+        });
+
         dividing.setOnClickListener(view -> {
             operator.delete(0, operator.length());
             operator.append("÷");
 
+            if (newNum.toString().equals("0")) {
+                operator.delete(0, operator.length());
+                newNum.delete(0, newNum.length());
+                newNum.append("Infinity");
+                printResult(oldNum, operator, newNum);
+                return;
+            }
+
             if (oldNum.length() != 0) {
-                if (oldNum.indexOf(".") != -1 || newNum.indexOf(".") != -1) {
-                    double d = Double.parseDouble(oldNum.toString()) / Double.parseDouble(newNum.toString());
-                    oldNum.delete(0, oldNum.length());
-                    oldNum.append(String.format("%.1f", d));
-                    newNum.delete(0, newNum.length());
+                if (newNum.length() != 0) {
+                    if (oldNum.indexOf(".") != -1 || newNum.indexOf(".") != -1) {
+                        double d = Double.parseDouble(oldNum.toString()) / Double.parseDouble(newNum.toString());
+                        oldNum.delete(0, oldNum.length());
+                        oldNum.append(String.format("%.2f", d));
+                        newNum.delete(0, newNum.length());
+                    } else {
+                        int i = Integer.parseInt(oldNum.toString()) / Integer.parseInt(newNum.toString());
+                        oldNum.delete(0, oldNum.length());
+                        oldNum.append(i);
+                        newNum.delete(0, newNum.length());
+                    }
                 } else {
-                    int i = Integer.parseInt(oldNum.toString()) / Integer.parseInt(newNum.toString());
-                    oldNum.delete(0, oldNum.length());
-                    oldNum.append(i);
                     newNum.delete(0, newNum.length());
                 }
             } else {
@@ -280,6 +336,89 @@ public class MainActivity extends AppCompatActivity {
         });
 
         equal.setOnClickListener(view -> {
+            if (oldNum.indexOf("/") != -1) {
+                try {
+                    StringTokenizer st = new StringTokenizer(oldNum.toString(), "/");
+                    double d = Double.parseDouble(st.nextToken()) / Double.parseDouble(st.nextToken());
+                    oldNum.delete(0, oldNum.length());
+                    oldNum.append(String.format("%.2f", d));
+                } catch (NoSuchElementException e) {
+                    errorprint();
+                }
+
+            }
+
+            if (newNum.indexOf("/") != -1) {
+                try {
+                    StringTokenizer st = new StringTokenizer(newNum.toString(), "/");
+                    double d = Double.parseDouble(st.nextToken()) / Double.parseDouble(st.nextToken());
+                    newNum.delete(0, newNum.length());
+                    newNum.append(String.format("%.2f", d));
+                    printResult(oldNum, operator, newNum);
+                } catch (NoSuchElementException e) {
+                    errorprint();
+                }
+            }
+
+            if (oldNum.indexOf("^") != -1) {
+                try {
+                    StringTokenizer st = new StringTokenizer(oldNum.toString(), "^");
+                    double d = Math.pow(Double.parseDouble(st.nextToken()), Double.parseDouble(st.nextToken()));
+                    //double d = Double.parseDouble(st.nextToken()) * Double.parseDouble(st.nextToken());
+                    oldNum.delete(0, oldNum.length());
+                    oldNum.append(String.format("%.2f", d));
+                } catch (NoSuchElementException e) {
+                    Log.d("dd","나옴");
+                    errorprint();
+                }
+
+            }
+
+            if (newNum.indexOf("^") != -1) {
+                try {
+                    StringTokenizer st = new StringTokenizer(newNum.toString(), "^");
+                    double d = Math.pow(Double.parseDouble(st.nextToken()), Double.parseDouble(st.nextToken()));
+                    //double d = Double.parseDouble(st.nextToken()) * Double.parseDouble(st.nextToken());
+                    newNum.delete(0, newNum.length());
+                    newNum.append(String.format("%.2f", d));
+                    printResult(oldNum, operator, newNum);
+                } catch (NoSuchElementException e) {
+                    errorprint();
+                }
+
+            }
+
+            if (oldNum.indexOf("√") != -1) {
+                oldNum.replace(0, 1, "");
+                double d = Math.sqrt(Double.parseDouble(oldNum.toString()));
+                oldNum.delete(0, oldNum.length());
+                oldNum.append(String.format("%.2f", d));
+            }
+
+            if (newNum.indexOf("√") != -1) {
+                newNum.replace(0, 1, "");
+                double d = Math.sqrt(Double.parseDouble(newNum.toString()));
+                //double d = Double.parseDouble(st.nextToken()) * Double.parseDouble(st.nextToken());
+                newNum.delete(0, newNum.length());
+                newNum.append(String.format("%.2f", d));
+                printResult(oldNum, operator, newNum);
+            }
+
+            if(newNum.indexOf("%") != -1){
+                newNum.replace(newNum.length()-1, newNum.length(),"");
+                double d = Double.parseDouble(newNum.toString()) / 100;
+                newNum.delete(0, newNum.length());
+                newNum.append(d);
+            }
+
+            if(oldNum.indexOf("%") != -1){
+                oldNum.replace(oldNum.length()-1, oldNum.length(),"");
+                double d = Double.parseDouble(oldNum.toString()) / 100;
+                oldNum.delete(0, oldNum.length());
+                oldNum.append(d);
+            }
+
+
             if (oldNum.length() != 0 || newNum.length() != 0) {
                 switch (operator.toString()) {
                     case "+":
@@ -298,6 +437,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        erase.setOnClickListener(view -> {
+            try {
+                newNum.setLength(newNum.length() - 1);
+                printResult(oldNum, operator, newNum);
+            } catch (StringIndexOutOfBoundsException e) {
+
+            }
+
+        });
+
+        fountain.setOnClickListener(view -> {
+            if (newNum.length() > 0) {
+                newNum.insert(0, "1/");
+                printResult(oldNum, operator, newNum);
+            }
+        });
+
 
     }
 
@@ -310,7 +466,7 @@ public class MainActivity extends AppCompatActivity {
             double d = Double.parseDouble(oldNum.toString()) + Double.parseDouble(newNum.toString());
             oldNum.delete(0, oldNum.length());
             newNum.delete(0, newNum.length());
-            newNum.append(String.format("%.1f", d));
+            newNum.append(String.format("%.2f", d));
 
         } else {
             int i = Integer.parseInt(oldNum.toString()) + Integer.parseInt(newNum.toString());
@@ -327,7 +483,7 @@ public class MainActivity extends AppCompatActivity {
             double d = Double.parseDouble(oldNum.toString()) - Double.parseDouble(newNum.toString());
             oldNum.delete(0, oldNum.length());
             newNum.delete(0, newNum.length());
-            newNum.append(String.format("%.1f", d));
+            newNum.append(String.format("%.2f", d));
 
         } else {
             int i = Integer.parseInt(oldNum.toString()) - Integer.parseInt(newNum.toString());
@@ -344,15 +500,31 @@ public class MainActivity extends AppCompatActivity {
             double d = Double.parseDouble(oldNum.toString()) * Double.parseDouble(newNum.toString());
             oldNum.delete(0, oldNum.length());
             newNum.delete(0, newNum.length());
-            newNum.append(String.format("%.1f", d));
+            newNum.append(String.format("%.2f", d));
 
         } else {
-            int i = Integer.parseInt(oldNum.toString()) * Integer.parseInt(newNum.toString());
-            oldNum.delete(0, oldNum.length());
-            newNum.delete(0, newNum.length());
-            newNum.append(i);
+            try {
+                int i = Integer.parseInt(oldNum.toString()) * Integer.parseInt(newNum.toString());
+                oldNum.delete(0, oldNum.length());
+                newNum.delete(0, newNum.length());
+                newNum.append(i);
+            } catch (NumberFormatException e) {
+                oldNum.delete(0, oldNum.length());
+                newNum.delete(0, newNum.length());
+                newNum.append("I can't calculate");
+            }
+
         }
         operator.delete(0, operator.length());
+        printResult(oldNum, operator, newNum);
+    }
+
+    private void errorprint() {
+        Log.d("error","실행");
+        oldNum.delete(0, oldNum.length());
+        newNum.delete(0, newNum.length());
+        operator.delete(0, operator.length());
+        newNum.append("i can't calculate");
         printResult(oldNum, operator, newNum);
     }
 
@@ -361,13 +533,26 @@ public class MainActivity extends AppCompatActivity {
             double d = Double.parseDouble(oldNum.toString()) / Double.parseDouble(newNum.toString());
             oldNum.delete(0, oldNum.length());
             newNum.delete(0, newNum.length());
-            newNum.append(String.format("%.1f", d));
+            newNum.append(String.format("%.2f", d));
 
         } else {
-            int i = Integer.parseInt(oldNum.toString()) / Integer.parseInt(newNum.toString());
-            oldNum.delete(0, oldNum.length());
-            newNum.delete(0, newNum.length());
-            newNum.append(i);
+            try {
+                if (!(newNum.toString().equals("0"))) {
+                    int i = Integer.parseInt(oldNum.toString()) / Integer.parseInt(newNum.toString());
+                    oldNum.delete(0, oldNum.length());
+                    newNum.delete(0, newNum.length());
+                    newNum.append(i);
+                } else {
+                    oldNum.delete(0, oldNum.length());
+                    newNum.delete(0, newNum.length());
+                    newNum.append("Infinity");
+                }
+
+            } catch (NumberFormatException e) {
+                oldNum.delete(0, oldNum.length());
+                newNum.delete(0, newNum.length());
+                newNum.append("I can't calculate");
+            }
         }
         operator.delete(0, operator.length());
         printResult(oldNum, operator, newNum);

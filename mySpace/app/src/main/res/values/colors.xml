@@ -7,10 +7,5 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="mycolor">#F50404</color>
-    <color name="operator">#B6B5B5</color>
-    <color name="backgroudColor">#000000</color>
-    <color name="number">#EFEBEB</color>
-    <color name="edgecolor">#4CAF50</color>
-    <color name="edgecolor2">#FF0000</color>
+    <color name="galaxy">#1B340B</color>
 </resources>
