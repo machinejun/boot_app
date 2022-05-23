@@ -7,6 +7,7 @@ import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 public class Activity2 extends AppCompatActivity {
     private LinearLayout underweight;
@@ -20,6 +21,8 @@ public class Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
+
+
         underweight = findViewById(R.id.underweight);
         normal = findViewById(R.id.normalfat);
         overweight = findViewById(R.id.overweight);
@@ -32,8 +35,15 @@ public class Activity2 extends AppCompatActivity {
         obesity.setVisibility(View.INVISIBLE);
         extermelyfat.setVisibility(View.INVISIBLE);
 
+        resultSet();
+    }
+
+    private void resultSet(){
+
 
         if(getIntent() != null){
+
+
             int result = calculateBMI(getIntent().getDoubleArrayExtra("info"));
             Log.d("TAG","결과: " + result);
 

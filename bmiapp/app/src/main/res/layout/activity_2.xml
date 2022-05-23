@@ -10,98 +10,116 @@
         android:id="@+id/toolBar"
         layout="@layout/tool_bar"/>
 
+
+
     <FrameLayout
-        app:layout_constraintVertical_bias="0.4"
+        android:id="@+id/frameLayout"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolBar"
-        android:layout_width="400dp"
-        android:layout_height="400dp">
+        app:layout_constraintVertical_bias="0.4">
+
         <LinearLayout
-            android:gravity="center"
             android:id="@+id/underweight"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-            <ImageView
-                android:src="@drawable/underweight"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"/>
-            <TextView
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:text="당신은 저체중입니다."
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-        <LinearLayout
             android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/underweight" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="당신은 저체중입니다."
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/normalfat"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-            <ImageView
-                android:src="@drawable/normal"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"/>
-            <TextView
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:text="당신은 정상입니다."
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-        <LinearLayout
             android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="당신은 정상입니다."
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/overweight"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-            <ImageView
-                android:src="@drawable/overweight"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"/>
-            <TextView
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:text="당신은 과체중입니다."
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-        <LinearLayout
             android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/overweight" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="당신은 과체중입니다."
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/obesity"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-            <ImageView
-                android:src="@drawable/obesit"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"/>
-            <TextView
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:text="당신은 비만입니다."
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-        <LinearLayout
             android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/obesit" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="당신은 비만입니다."
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/external"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="vertical">
+
             <ImageView
-                android:src="@drawable/extermel"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"/>
+                android:layout_height="200dp"
+                android:src="@drawable/extermel" />
+
             <TextView
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:text="당신은 고도비만입니다."
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="당신은 고도비만입니다."
+                android:textColor="@color/black"
+                android:textSize="20dp" />
         </LinearLayout>
 
     </FrameLayout>
