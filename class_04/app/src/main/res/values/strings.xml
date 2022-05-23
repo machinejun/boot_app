@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">class_04</string>
+    <string name="str_sub_activity">sub_activity</string>
+    <string name="str_temp1">화면전환</string>
+</resources>

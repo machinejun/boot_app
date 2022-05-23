@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity1">
+
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/tool_bar"/>
+
+    <ImageView
+        android:id="@+id/peopleimg"
+        android:layout_marginTop="20dp"
+        app:layout_constraintVertical_bias="0.15"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolBar"
+        app:layout_constraintBottom_toTopOf="@id/boxHeight"
+        android:src="@drawable/ic_baseline_accessibility_new_24"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:tint="@color/peopleColor"/>
+
+    <LinearLayout
+        android:id="@+id/boxHeight"
+        app:layout_constraintTop_toBottomOf="@id/peopleimg"
+        app:layout_constraintBottom_toTopOf="@id/boxweight"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/heightEt"
+            app:startIconDrawable="@drawable/ic_baseline_favorite_border_24"
+            app:startIconContentDescription="@string/str_inputimg"
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="신장(cm)">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/boxweight"
+        app:layout_constraintTop_toBottomOf="@id/boxHeight"
+        app:layout_constraintBottom_toTopOf="@id/submitBtn"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/weightEt"
+            app:startIconDrawable="@drawable/ic_baseline_nature_people_24"
+            app:startIconContentDescription="@string/str_inputimg"
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="몸무게">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/boxweight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/edge"
+        android:id="@+id/submitBtn"
+        android:text="제출하기"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

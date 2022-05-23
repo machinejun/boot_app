@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/tool_bar"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:src="@drawable/ic_baseline_person_24"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:tint="@color/purple_200" />
+
+
+        <LinearLayout
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/heightEt"
+                app:startIconDrawable="@drawable/ic_baseline_favorite_24"
+                app:startIconContentDescription="@string/content_description_end_icon"
+                app:endIconMode="clear_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="신장">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/weightEt"
+                app:startIconDrawable="@drawable/ic_baseline_favorite_24"
+                app:startIconContentDescription="@string/content_description_end_icon"
+                app:endIconMode="clear_text"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="체중">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/submitBtn"
+            android:gravity="center"
+            android:text="확인하기"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
