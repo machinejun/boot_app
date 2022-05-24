@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <NumberPicker
+
+        android:id="@+id/numberPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@id/addNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/addNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/str_add_number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/clear"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/numberPicker" />
+
+    <Button
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_clear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/addNumber"
+        app:layout_constraintTop_toTopOf="@id/addNumber" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:paddingEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addNumber">
+
+        <TextView
+            android:id="@+id/firstBall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/clycle"
+            android:gravity="center"
+            android:text=""
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="1"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/secondBall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/clycle"
+            android:gravity="center"
+            android:text=""
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="1"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/thirthBall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/clycle"
+            android:gravity="center"
+            android:text=""
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="1"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/fourthBall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/clycle"
+            android:gravity="center"
+            android:text=""
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="1"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/fifthBall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/clycle"
+            android:gravity="center"
+            android:text=""
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="1"
+            tools:visibility="visible" />
+        <TextView
+            android:id="@+id/sixthBall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/clycle"
+            android:gravity="center"
+            android:text=""
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="1"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/runBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/str_rungame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/purple_200"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    android:elevation="3dp"
+    >
+    <!-- xmlns: android 가 명시되있어야지만 안드로이드에 대한 속성레이아웃을
+                사용할 수 있다.
+                따라서, app 의 속성을 사용할려면 app 을 명시해주어야한다.-->
+   <!-- elevation : 두께감 주는 행위  , popupTheme : 툴박스 크기를 정해줌 -->
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="horizontal">
+       <TextView
+           android:gravity="center_vertical"
+           android:textStyle="bold"
+           android:textColor="@color/black"
+           android:textSize="16dp"
+           android:text="@string/str_toolbar_title"
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent"/>
+
+   </LinearLayout>
+
+</androidx.appcompat.widget.Toolbar>

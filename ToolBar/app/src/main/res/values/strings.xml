@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ToolBar</string>
+    <string name="str_toolbar_title">toolbar Title</string>
+    <string name="str_finsih">종료하기</string>
+</resources>
