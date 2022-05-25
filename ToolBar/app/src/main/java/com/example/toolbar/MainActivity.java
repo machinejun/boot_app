@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         }else if(R.id.menuItem2 == item.getItemId()){
             Log.d("TAG", "menu2 번이 눌러졌어요");
-            Uri number = Uri.parse("tel:01086370826");
+            Uri number = Uri.parse("tel:01000000000");
             Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
             startActivity(callIntent);
         }else{
