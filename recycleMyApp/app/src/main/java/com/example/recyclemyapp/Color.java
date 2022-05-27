@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 // 직렬화 --> OBJECT --> byte
-// 역직렬화 byte --> OBJECT
+// : 하나의 액티비티에서 다른 액티비트로 데이터를 전달할 떄 intent 안에 데이터를 직렬화 시켜 보낸다.
+
 public class Color implements Serializable {
 
     private String imageUrl;
@@ -48,5 +49,15 @@ public class Color implements Serializable {
         data.add(new Color("https://cdn.pixabay.com/photo/2015/07/02/20/14/leaves-829513__340.jpg","초록색", "#008000", 1));
 
         return data;
+    }
+
+    @Override
+    public String toString() {
+        return "Color{" +
+                "imageUrl='" + imageUrl + '\'' +
+                ", name='" + name + '\'' +
+                ", RGBcode='" + RGBcode + '\'' +
+                ", favorite=" + favorite +
+                '}';
     }
 }

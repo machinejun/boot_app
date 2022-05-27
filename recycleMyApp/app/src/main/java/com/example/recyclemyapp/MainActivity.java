@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("TAG",position + "");
             Intent intent = new Intent(getApplication(), DetailColor.class);
             intent.putExtra("obj", Color.getColorData().get(position));
-            //repaint(position);
+            repaint(position);
             startActivity(intent);
         }
     });
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         view = findViewById(R.id.recylerView);
         view.setAdapter(adapter);
         view.setLayoutManager(new LinearLayoutManager(this));
+        view.hasFixedSize(); // 성능 개선 (렌더링이 조금더 빠르게 가능하다.)
 
     }
 
