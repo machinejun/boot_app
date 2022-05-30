@@ -30,40 +30,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         imageView = findViewById(R.id.img);
-        imageView2 = findViewById(R.id.img2);
-        Thread thread =new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    URL url = new URL("https://cdn.pixabay.com/photo/2022/02/21/07/12/woman-7025944_960_720.jpg");
-                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                    conn.connect();
-
-                    InputStream inputStream = conn.getInputStream();
-                    BufferedInputStream bi = new BufferedInputStream(inputStream);
-                    bitmap= BitmapFactory.decodeStream(bi);
-
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        thread.start();
-        try{
-            thread.join();
-            imageView.setImageBitmap(bitmap);
-
-            Glide.with(this)
-                    .load("https://cdn.pixabay.com/photo/2022/05/16/11/01/pugs-7200102__340.png")
-                    .into(imageView2);
-
-        }catch (InterruptedException e){
-
-        }
-
+        Glide.with(this)
+                .load("https://cdn.pixabay.com/photo/2022/05/16/11/01/pugs-7200102__340.png")
+                .circleCrop()
+                .into(imageView);
     }
 }

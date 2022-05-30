@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplication(), DetailColor.class);
             intent.putExtra("obj", Color.getColorData().get(position));
             repaint(position);
-            startActivity(intent);
+//            startActivity(intent);
         }
     });
     @Override

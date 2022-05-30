@@ -36,33 +36,5 @@
         app:layout_constraintStart_toEndOf="@id/btnCreate"
         app:layout_constraintTop_toBottomOf="@id/container" />
 
-    <LinearLayout
-        android:layout_marginTop="30dp"
-        android:background="@color/purple_500"
-        app:layout_constraintTop_toBottomOf="@id/btnCreate"
-        android:orientation="vertical"
-        android:id="@+id/container2"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"/>
-    <Button
-        app:layout_constraintStart_toStartOf="parent"
-        android:backgroundTint="@color/teal_200"
-        app:layout_constraintTop_toBottomOf="@id/container2"
-        app:layout_constraintEnd_toStartOf="@id/btnDelete2"
-        android:text="create"
-        android:id="@+id/btnCreate2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <Button
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnCreate2"
-        app:layout_constraintTop_toTopOf="@id/btnCreate2"
-        android:backgroundTint="@color/teal_200"
-        app:layout_constraintTop_toBottomOf="@id/container2"
-        android:text="DELETE"
-        android:id="@+id/btnDelete2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

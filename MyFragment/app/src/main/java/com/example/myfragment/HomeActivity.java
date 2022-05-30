@@ -59,9 +59,7 @@ public class HomeActivity extends AppCompatActivity {
             transaction.commit();
         });
 
-        btnCreate2.setOnClickListener(view -> {
 
-        });
 
 
     }
