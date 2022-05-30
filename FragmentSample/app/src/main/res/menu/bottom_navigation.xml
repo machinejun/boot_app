@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/homeIcon"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="home" />
+    <item
+        android:id="@+id/document"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_library_books_24"
+        android:title="document" />
+    <item
+        android:id="@+id/location"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_location_on_24"
+        android:title="location" />
+    <item
+        android:id="@+id/cheat"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_chat_24"
+        android:title="cheat" />
+    <item
+        android:id="@+id/myCarrot"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_people_24"
+        android:title="myCarrot" />
+
+
+
+</menu>
