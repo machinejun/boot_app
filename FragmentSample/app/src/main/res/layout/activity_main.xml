@@ -5,9 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <androidx.fragment.app.FragmentContainerView
-        app:layout_constraintBottom_toTopOf="@id/naviLayout"
+    <androidx.appcompat.widget.Toolbar
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:id="@+id/toolBar"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+<!--    <TextView-->
+<!--        android:layout_marginStart="40dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="20dp"-->
+<!--        android:text="나의 당근"-->
+<!--        app:layout_constraintTop_toTopOf="@id/toolBar"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/toolBar"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container"
+        app:layout_constraintBottom_toTopOf="@id/naviLayout"
+        app:layout_constraintTop_toBottomOf="@id/toolBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_width="match_parent"
