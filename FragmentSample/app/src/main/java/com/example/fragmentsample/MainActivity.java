@@ -100,7 +100,12 @@ public class MainActivity extends AppCompatActivity implements OptionFragment.Op
 
     @Override
     public void optionCilck(int id) {
-        Intent intent = new Intent(this, ProfileActivity.class);
-        startActivity(intent);
+        switch (id){
+            case R.id.showProfile:
+                Intent intent = new Intent(this, ProfileActivity.class);
+                startActivity(intent);
+                break;
+        }
+
     }
 }
