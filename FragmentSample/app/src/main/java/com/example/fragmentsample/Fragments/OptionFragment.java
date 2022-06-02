@@ -95,9 +95,7 @@ public class OptionFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        if (context instanceof OptionEventListener) {
-            callback = (OptionEventListener) context;
-        }
 
+        callback = (OptionEventListener) context;
     }
 }
