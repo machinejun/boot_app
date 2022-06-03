@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.FitCenter;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.example.movie_one.R;
+import com.example.movie_one.interfaces.OnMovieItemClicked;
 import com.example.movie_one.models.Movie;
 
 import java.util.ArrayList;
@@ -24,6 +25,13 @@ import java.util.List;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder> {
 
     private List<Movie> list = new ArrayList<Movie>();
+
+    OnMovieItemClicked clicked;
+
+    // 아이템 클릭 이벤트
+    public void setClicked(OnMovieItemClicked clicked) {
+        this.clicked = clicked;
+    }
 
     // 생성자에서 데이터를 전달했을 때와 다르게
     // >>>> 네트워크를 통신이기 때문에 화면을 그리는 시점보다
@@ -34,9 +42,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
      * 통신이 완료되었을 때 해당 메서드를 호출하고 갱신을 알림
      * @param list = 서버로 부터 전송받은 무비리스트
      */
-    public void addItemList(List<Movie> list) {
+    public void addList(List<Movie> list) {
         this.list = list;
         notifyDataSetChanged(); // 데이터가 변경되었다라고 알려줌 >> 화면을 다시 그림 == repaint()
+    }
+
+    public void addItemList(List<Movie> addlist){
+        this.list.addAll(list.size(),addlist);
+        notifyDataSetChanged();
     }
 
     /**
@@ -62,8 +75,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
      */
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        Log.d("TAG", position + "");
         Movie movie = list.get(position);
         holder.setItem(movie);
+        holder.itemView.setOnClickListener(view -> {
+            clicked.selectedItem(movie);
+        });
 
 
         // 2가지 타입 >> 1. 여기서 바로 셋팅, 2. view holder 안에서 세팅
