@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void addEventListener() {
         btn1.setOnClickListener(view -> {
-            Log.d("TAG","btn1 click");
             service.post(10).enqueue(new Callback<ResponsePostDto>() {
                 @Override
                 public void onResponse(Call<ResponsePostDto> call, Response<ResponsePostDto> response) {
@@ -75,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         });
+
         btn2.setOnClickListener(view -> {
-            Log.d("TAG","btn2 click");
             service.postList().enqueue(new Callback<List<ResponsePostDto>>() {
                 @Override
                 public void onResponse(Call<List<ResponsePostDto>> call, Response<List<ResponsePostDto>> response) {
@@ -98,8 +97,7 @@ public class MainActivity extends AppCompatActivity {
                                     , (SQL Lite 에서 꺼내서 사용한다)
                                     , 메모리 스태틱 변수로 사용하기도 한다.
              */
-            Log.d("TAG","btn3 click");
-            service.createPost(new RequestPostDto("회의","db설계회의", 10)).enqueue(new Callback<ResponsePostDto>() {
+            service.createPost(new RequestPostDto("회의","db설계회의", 1)).enqueue(new Callback<ResponsePostDto>() {
                 @Override
                 public void onResponse(Call<ResponsePostDto> call, Response<ResponsePostDto> response) {
                     if(response.isSuccessful()){
@@ -116,8 +114,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         });
+
         btn4.setOnClickListener(view -> {
-            Log.d("TAG","btn4 click");
             service.updatePost(10, new RequestPostDto("오전 10:25","햇빗이 따사롭다", 20))
                     .enqueue(new Callback<ResponsePostDto>() {
                 @Override
@@ -135,8 +133,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         });
+
         btn5.setOnClickListener(view -> {
-            Log.d("TAG","btn5 click");
             service.deletePost(10).enqueue(new Callback<Void>() {
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
@@ -152,8 +150,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         });
+
         btn6.setOnClickListener(view -> {
-            Log.d("TAG","btn6 click");
             service.searchByUserId(0).enqueue(new Callback<List<ResponsePostDto>>() {
                 @Override
                 public void onResponse(Call<List<ResponsePostDto>> call, Response<List<ResponsePostDto>> response) {
@@ -170,5 +168,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         });
+
     }
 }
